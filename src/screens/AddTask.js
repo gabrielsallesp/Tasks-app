@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -41,6 +41,7 @@ export default class AddTask extends Component {
 
 
     render() {
+        let keyboardVerticalOffset = 0
         return (
 
             <Modal transparent={true} 
@@ -52,8 +53,10 @@ export default class AddTask extends Component {
                     <View style={styles.background} />
                 </TouchableWithoutFeedback>
 
-                <View style={styles.container}>
-
+                <KeyboardAvoidingView 
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                    style={styles.container}>
+                    
                     <View style={styles.header}>
                         <Text style={styles.headerText}>Nova Tarefa</Text>
                         <TouchableOpacity onPress={this.save}>
@@ -70,9 +73,8 @@ export default class AddTask extends Component {
                     <View style={styles.datePicker}>
                         {this.getDateTimePicker()}
                     </View>
-          
 
-                </View>
+                </KeyboardAvoidingView>
 
                 {/* <TouchableWithoutFeedback onPress={this.props.onCancel}>
                     <View style={styles.background} />

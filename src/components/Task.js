@@ -67,10 +67,13 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         borderColor: "#AAA",
-        borderBottomWidth: 1,
         alignItems: "center",
         paddingVertical: 10,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderRadius: 10,
+        marginHorizontal: 5,
+        marginTop: 5
     },
     checkContainer: {
         width: "18%",
@@ -107,7 +110,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "flex-end",
         paddingHorizontal: 20,
-        flex: 1
+        flex: 1,
+        marginTop: 5
     },
     excludeText: {
         color: 'white',
